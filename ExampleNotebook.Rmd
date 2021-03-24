@@ -1,0 +1,88 @@
+---
+title: "R Notes - Week XX"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+You can copy and paste chunks over from other scripts in this course, and then write your own notes and reflections between the code. 
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Note that *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+## Exercise 1
+```{r}
+help(median)
+?sd
+?max
+```
+
+Your notes:
+
+
+## Exercise 2
+```{r}
+#1. 
+ceiling(18.33); signif(9488, 2)
+#2. 
+exp(1); log10(1000)
+#3. 
+sign(-2.9); sign(32)
+#4. 
+abs(-27.9) ; abs(11.9)
+```
+
+Your notes:
+
+## Exercise 3
+```{r}
+# Calculate the `gross` by adding the `tax` to `net` amount
+  net <- c(108.99, 291.42, 16.28, 62.29, 31.77)
+  tax <- c(22.89, 17.49, 0.98, 13.08, 6.67)
+  
+  
+```
+
+Your notes:
+
+
+# Chickweight data
+```{r, echo = FALSE}
+# Load tidyverse
+suppressWarnings(library(tidyverse))
+# Load the data
+CW <- read_csv("ChickWeight.csv")
+```
+
+## Exercise 4
+```{r}
+# Plotting chick weight
+ggplot(CW, aes(Time, weight)) + geom_point() 
+
+# Switch the variables `Time` and `weight` in code used for the plot on the right?
+# What do you think of this new plot compared to the original?
+```
+
+
+## Exercise 5
+```{r}
+# Adding jitter to the points
+# Copy and paste the code below in a new code chunk
+#Replace the `geom_point()` above with `geom_jitter()`. What do you observe?
+
+ggplot(CW, aes(Time, weight, colour=Diet)) +
+  geom_point() +
+  facet_wrap(~Diet) +
+  theme(legend.position = "bottom")
+```
+
+
